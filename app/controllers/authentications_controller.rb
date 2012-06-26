@@ -6,7 +6,11 @@ class AuthenticationsController < ApplicationController
   
   def create
      # omniauth_hash = request.env["omniauth.auth"]
+<<<<<<< HEAD
      # render :text => omniauth_hash['extra']['raw_info'].to_yaml
+=======
+     # render :text => omniauth_hash['info'].to_yaml
+>>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
       
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
@@ -27,7 +31,11 @@ class AuthenticationsController < ApplicationController
         if omniauth["provider"] == "facebook"
           session[:omniauth] = omniauth
         elsif omniauth["provider"] == "twitter"
+<<<<<<< HEAD
            session[:omniauth] = omniauth.except('extra')
+=======
+           session[:omniauth] = omniauth['info']
+>>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
         end
         redirect_to new_user_registration_url
       end

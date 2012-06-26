@@ -15,7 +15,7 @@
   
   <div>
 	<%= f.label :sex%>:<br />
-	<%= f.select(:sex,[['Select Sex',nil],['Female','0'],['Male','1']]) %>
+	<%= f.select(:sex,[['Select Sex',nil],['Male','m'],['Female','f']]) %>
   </div>
   
   <div>
@@ -27,30 +27,23 @@
 	<%= f.label :email %><br />
 	<%= f.email_field :email %>
   </div>
-<<<<<<< HEAD
+  
+  <div>
+	<%= f.label :occupation %><br />
+	<%= f.text_field :occupation %>
+  </div> 
+  
+  <div>
+	<%= f.label :password %><br />
+	<%= f.password_field :password %>
+  </div>
 
-	<% if @user.password_required? %>
-=======
- 
->>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
-	  <div>
-		<%= f.label :password %><br />
-		<%= f.password_field :password %>
-	  </div>
-	
-	  <div>
-		<%= f.label :password_confirmation %><br />
-		<%= f.password_field :password_confirmation %>
-	  </div>
-<<<<<<< HEAD
-	<% end %>
-    
+  <div>
+	<%= f.label :password_confirmation %><br />
+	<%= f.password_field :password_confirmation %>
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
-  
-=======
-  
-  <div><%= f.submit "Sign up" %></div>
->>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
 <% end %>
 
 <%= render "links" %>

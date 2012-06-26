@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
       # self.birthday = omniauth_hash['info']['birthday'] if birthday.blank?
       authentications.build(:provider => omniauth_hash['provider'], :uid => omniauth_hash['uid'])
     else
+<<<<<<< HEAD
        fullname = omniauth_hash['info']['name'].to_s.split(" ")
        if !fullname[0].nil? 
          self.firstname = fullname[0]
@@ -47,13 +48,22 @@ class User < ActiveRecord::Base
          self.lastname = fullname[1]
        end
        authentications.build(:provider => omniauth_hash['provider'], :uid => omniauth_hash['uid'])
+=======
+       fullname = omniauth_hash['info']
+       self.firstname = 'fullname[0]'
+       self.lastname = 'fullname[1]'
+>>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
     end
     
   end
   
   def password_required?
     (authentications.empty? || !password.blank?) && super
+<<<<<<< HEAD
   end
+=======
+  end  
+>>>>>>> d30bdff0dcf6b373c77b049cb4b783b093c1acc5
 
   def update_with_password(params={})
     current_password = params.delete(:current_password) if !params[:current_password].blank?
